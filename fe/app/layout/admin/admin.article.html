@@ -1,0 +1,50 @@
+<div class="content-box-large">
+    <div class="panel-heading">
+        <div class="panel-title">Article</div>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Created</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="#article of articles; #i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{article.title | capitalize |truncate:30:' '}}Mark</td>
+                    <td>{{article.author | capitalizeFirstLetter}}</td>
+                    <td>{{article.created}}</td>
+                    <td>
+                        <a href="javascript:void(0)" data-rel="reload">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </a>
+                        &nbsp;
+                        <a href="javascript:void(0)" data-rel="reload">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div>
+                <ul class="pager">
+                     <li class="next" *ngIf="!isDisabledNext">
+                        <a (click)="gotoNext()" href="javascript:void(0)" class="paging-cus">&rarr;</a>
+                    </li>
+                    &nbsp;
+                    <li class="previous" *ngIf="!isDisabledPrevious">
+                        <a (click)="gotoPrevious()" href="javascript:void(0)" class="paging-cus">&larr;</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+ <script src="/js/tables.js"></script>
